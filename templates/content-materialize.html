@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row" ng-controller="pageslideCtrl">
+
+        <div class="col s3">
+            <ul >
+                <li><a class="brand" href="#">Hanami</a></li>
+                <li><a href="#"><span>Chi Siamo</span></a></li>
+                <li class="text-center">
+                    <div ng-controller="CollapseDemoCtrl">
+                        <a href="" ng-click="isCollapsed = !isCollapsed">
+                            <span class="menu-item">Collezioni</span>
+                        </a>
+                        <ul class="sub-menu" uib-collapse="isCollapsed">
+                            <div class="sub-menu">
+                                <li class="text-center"><a href="#" ui-sref="content.collezioni({collectionId:'pe2017'})">Spring Summer 2017</a></li>
+                                <li class="text-center"><a href="#" ui-sref="content.collezioni({collectionId:'pe2016'})">Spring Summer 2016</a></li>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <li><a ui-sref="content.shop" href="#"><span class="menu-item">Shop</span></a></li>
+                <li><a href="#"><span class="menu-item">Contatti</span></a></li>
+
+                <div class="div-icon text-center">
+                    <a class="" href="https://www.facebook.com/Hanami-di-Giulia-Roselli-1731233787151948/" target="_blank">
+                        <span class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x"></i>
+                </span>
+                    </a>
+                    <a class="" href="https://www.instagram.com/hanami_clothing/" target="_blank">
+                        <span class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-instagram fa-stack-1x"></i>
+                </span>
+                    </a>
+                    <a class="" href="mailto:giuliaroselli@hanamiclothing.it">
+                        <span class="fa-stack">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-paper-plane-o fa-stack-1x"></i>
+                </span>
+                    </a>
+                </div>
+
+            </ul>
+        </div>
+
+        <div class="col s9">
+                <ui-view></ui-view>
+        </div>
+    </div>
+</div>

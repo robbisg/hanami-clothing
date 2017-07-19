@@ -1,0 +1,22 @@
+@media (min-width: 600px) and (max-width: 900px){
+  [dynamic-layout]{
+    width: 600px;
+  }
+  .dynamic-layout-col-4{
+    width : 200px;
+  }
+  .dynamic-layout-col-8{
+    width : 200px;
+  }
+}
+@media (max-width: 600px){
+  [dynamic-layout]{
+    width: 300px;
+  }
+  .dynamic-layout-col-4{
+    width : 300px;
+  }
+  .dynamic-layout-col-8{
+    width : 300px;
+  }
+}

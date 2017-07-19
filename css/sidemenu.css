@@ -1,0 +1,238 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+@font-face {
+    font-family: "Vonique 64";
+    src: url("/font/vonique-64-edit.64.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "LT Oksana";
+    src: url("/font/LT-Oksana.ttf") format("truetype");
+}
+
+.container-fluid {
+    width: 95%;
+}
+
+.ng-pageslide-body-open {
+    transition: all linear 0.5s;
+    width: 85%;
+}
+
+.div-icon {
+    padding: 20px 10px 10px 10px;
+    margin: 10px;
+    font-size: 15px;
+}
+/* Home Page */
+.hanami-img{
+    background-image: url("../images/collection/pe2017/")
+}
+
+.about-img{
+
+}
+
+.collection-img{
+
+}
+
+.shop-img{
+
+}
+/* Menu icon*/
+
+.menu {
+    position: fixed;
+    top: 2%;
+    padding: 3px;
+    z-index: 10000;
+}
+
+.menu:hover {
+    text-decoration: none;
+    padding: 3px;
+}
+
+.menu span {
+    font-size: x-large;
+}
+
+.fa-circle {
+    color: #8c8c8c;
+}
+
+.fa:hover {
+    color: #FFFFFF;
+}
+
+.div-icon>a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.fa-facebook,
+.fa-instagram,
+.fa-paper-plane-o {
+    color: #000000;
+    text-shadow: none;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: white;
+}
+
+#pe2017 {
+    font-family: "Josefin Sans";
+    font-size: 45px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-bottom: 4px orange solid;
+    color: orange;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    color: black;
+}
+
+h1[id]::before,
+h2[id]::before,
+h3[id]::before {
+    display: block;
+    content: " ";
+    margin-top: 0px;
+    height: 0px;
+    visibility: hidden;
+}
+
+
+/* Grid */
+
+@media (min-width: 900px) {
+    [dynamic-layout] {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .dynamic-layout-col-4 {
+        width: 25%;
+    }
+    .dynamic-layout-col-8 {
+        width: 15%;
+    }
+}
+
+.dynamic-layout-item {
+    padding: 10px;
+}
+
+.move-items-animation {
+    transition-property: left, top;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
+
+.dynamic-layout-item-parent.ng-enter {
+    transition: .5s ease-in-out;
+    opacity: 0;
+}
+
+.dynamic-layout-item-parent.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
+.dynamic-layout-item-parent.ng-leave {
+    transition: .5s ease-in-out;
+    opacity: 1;
+}
+
+.dynamic-layout-item-parent.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+[dynamic-layout] {
+    float: top;
+    position: relative;
+}
+
+
+/* Sidebar Styles */
+
+.brand {
+    font-family: 'Vonique 64';
+    font-size: 65px;
+    color: white;
+}
+
+.sidebar {
+    background-color: black;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 10%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar-nav li {
+    font-family: 'Josefin Sans';
+    font-size: 25px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.menu-item:hover {
+    border: 1px white solid;
+    padding: 15px;
+}
+
+.sidebar-nav li a:hover {
+    color: white;
+}
+
+.sidebar-nav li span:active,
+.sidebar-nav li span:focus {
+    border: 1px white solid;
+}
+
+.sidebar-nav>.sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav>.sidebar-brand a {
+    color: white;
+}
+
+.sidebar-nav>.sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+.sub-menu,
+.sub-menu>li {
+    font-size: 20px;
+    padding: 3px;
+    list-style: none;
+}
+
+.sub-menu>li a:hover {
+    background-color: white;
+    color: black;
+    border: 1px white solid;
+}

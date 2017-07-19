@@ -1,0 +1,18 @@
+<!-- Page Content -->
+
+    <div class="row" ng-controller="CollectionCtrl">
+      <div class="col s12">
+        <h1 id="pe2017">{{pics.title}}</h1>
+        <div masonry="{ transitionDuration: '0.4s', columnWidth: 200 }">
+          <!-- items -->
+          <div class="masonry-brick" ng-repeat="img in pics.data">
+            <div class="card">
+              <div class="card-content">
+                <img ng-src="{{img.src}}">
+                <p class="">{{img.src}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

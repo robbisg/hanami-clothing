@@ -1,0 +1,14 @@
+.row{
+	margin-right: 0px;
+	margin-left:0px;
+}
+a:hover{
+	text-decoration: none;
+}
+.fa-facebook, .fa-instagram{
+	color: #b4c5e6;
+	text-shadow:none;
+}
+i::before{
+    background:transparent;
+}
