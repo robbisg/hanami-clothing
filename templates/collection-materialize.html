@@ -1,18 +1,39 @@
 <!-- Page Content -->
 
-    <div class="row" ng-controller="CollectionCtrl">
-      <div class="col s12">
-        <h1 id="pe2017">{{pics.title}}</h1>
-        <div masonry="{ transitionDuration: '0.4s', columnWidth: 200 }">
-          <!-- items -->
-          <div class="masonry-brick" ng-repeat="img in pics.data">
-            <div class="card">
-              <div class="card-content">
-                <img ng-src="{{img.src}}">
-                <p class="">{{img.src}}</p>
+
+    <div class="parallax-container">
+      <div parallax><img ng-src={{pics.background_image}}></div>
+      <h1 class="parallax-title center-align hide-on-med-and-down">{{pics.title}}</h1>
+    </div>
+    <div id="section08" class="demo">
+      <a href="#collection-gallery"><span></span>Scroll</a>
+    </div>
+    <div class="container-fluid">
+      <div class="row collection-row">
+        <div class="col s12" id="collection-gallery" >
+          <h1 class="center-align show-on-large-only hide-on-med-and-down" id="page-title" style="font-family:'Poiret One';"></h1>
+          <h1 class="center-align show-on-med-and-down hide-on-large-only parallax-title"
+                  id="page-title"
+                  style="font-family:'Poiret One'; font-size:40px; width:100%; left:0;">{{pics.title}}</h1>
+          <div masonry="{transitionDuration: '0.9s'}">
+            <div>
+            <!-- items -->
+              <div class="masonry-brick" ng-repeat="img in pics.data" >
+                <div class="card z-depth-0" style="margin: 0px;">
+                  <div class="card-content" style="padding: 10px;">
+                      <img materialboxed data-caption={{img.alt}} alt={{img.alt}} ng-src="{{img.src}}" >
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <footer class="page-footer">
+      <div class="hanami-footer-copyright">
+        <div>
+        © 2017, Hanami di Giulia Roselli | Via G. Leopardi, 16 - Grottammare (AP) | P.IVA: 02274090444 | XF | <a class="right-align" href="https://github.com/robbisg" style="color:gray;">Credits</a>
+        </div>
+      </div>
+    </footer>

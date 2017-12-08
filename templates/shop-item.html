@@ -1,0 +1,73 @@
+<div class="container-fluid" style="">
+  <div class="row">
+    <div class="col s12" style="margin-top:5%" itemscope itemtype="http://schema.org/Product">
+      <h1 class="center-align" style="font-family:'Poiret One'; padding-bottom: 5%;"></h1>
+        <!-- items -->
+        <div class="col s4">
+            <div class=" center-align " ng-repeat="subimage in item.images">
+              <div class="shop-subimage">
+
+                <a href ng-click="selectItem(subimage, $event)"><img class="responsive-img" ng-src={{subimage}} width="10%"></a>
+
+              </div>
+
+              </div>
+        </div>
+        <div class="col s4 center-align shop-item-main vertical-align">
+          <div><img class="responsive-img" height=650 ng-src={{item.src}} itemprop="image"></div>
+        </div>
+        <div class="col s4">
+          <div class="shop-main-text" >
+            <div class="shop-item-box center-align" style="background-color:#eceff1;">
+              <div class="row">
+                <div class="col s12 shop-item-name" itemprop="name">{{item.name}}</div>
+                <div class="hidden-markup" itemprop="brand" itemscope itemtype="http://schema.org/Brand">
+                  <span class="hidden-markup" itemprop="name">Hanami</span>
+                </div>
+              </div>
+              <div class="row" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div ng-if="item.price != 0" >
+                  <div class="hidden-markup" itemprop="availability" href="http://schema.org/InStock">Disponibile</div>
+                  <div class="col s6 shop-item-price">{{item.price}} <span>€</span></span></div>
+                  <div class="col s6 shop-item-discount" itemprop="price" content={{item.discount}}>{{item.discount}}
+                    <span itemprop="priceCurrency" content="EUR">€</span>
+                    </span></div>
+                </div>
+                <div ng-if="item.price == 0" itemprop="availability" href="http://schema.org/OutOfStock">
+                    <div class="col s12 shop-item-discount">Non disponibile</div>
+                </div>
+              </div>
+
+            <div class="row shop-item-description" itemprop="description">{{item.description}}</div>
+            <div class="row">
+              <a class="shop-item-button btn z-depth-4 {{item.price == 0 ? 'disabled' : null}}" data-target='modal-{{item.id}}' modal>Acquista</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal shop -->
+  <div id="modal-{{item.id}}" class="modal" ng-controller="ShopModalController">
+      <div class="modal-content">
+          <h4 style="color:red;"><i class="fa fa-exclamation" aria-hidden="true"></i> Richiesta disponibilità <i class="fa fa-exclamation" aria-hidden="true"></i></h4>
+
+          <p>Tutti gli articoli Hanami sono pezzi unici che vendiamo anche nel nostro punto vendita.<br>
+          E' possibile, perciò, che il capo che hai scelto non sia più disponibile, sfortunatamente! <br>Per verificarne la disponibilità,
+          clicca il pulsante Richiedi disponibilità, verrà inviata una mail con il capo che hai richiesto e noi verificheremo
+        che non è stato venduto!</p>
+      </div>
+      <div class="modal-footer">
+        <a ng-click="checkAvailability(item.id)" class="modal-action modal-close waves-effect waves-green btn-flat">Richiedi disponibilità</a>
+        <a href class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+      </div>
+  </div>
+  <footer class="hanami-page-footer page-footer">
+    <div class="hanami-footer-copyright">
+      <div>
+      © 2017, Hanami di Giulia Roselli | Via G. Leopardi, 16 - Grottammare (AP) | P.IVA: 02274090444 | <a class="right-align" href="https://github.com/robbisg" style="color:gray;">Credits</a>
+      </div>
+    </div>
+  </footer>
+</div>

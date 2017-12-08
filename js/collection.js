@@ -1,46 +1,29 @@
 angular.module("collection", ['ui.router'])
 
-.controller("CollectionCtrl", ['$stateParams', '$state', '$scope', 'loadImages', function($stateParams, $state, $scope, loadImages) {
+.controller("CollectionCtrl", ['$stateParams', '$state', '$scope', 'pics', function($stateParams, $state, $scope, pics) {
 
         $scope.params = $stateParams;
         console.log($state);
-        console.log($stateParams);
+        console.log(pics.data);
+        $scope.pics = pics.data;
 
-        $scope.pics = loadImages.get({ params: $scope.params }).then(function(data) {
+        /*$scope.pics = loadImages.get({ params: $scope.params }).then(function(data) {
                           console.log($scope.params);
                           $scope.pics = data.data;
                           console.log($scope.pics);
                           return data.data;
-                      })
+                      })*/
 
     }])
-    .directive('ngMasonry', function($timeout) {
-        return function(scope, element, attrs) {
+    .directive('lightgallery', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+          if (scope.$last) {
 
-            if (scope.$last){
-                $timeout(function () {
-                    var parent = element.parent();
-                    var masonry = new Masonry(parent[0], {
-                        itemSelector: '.grid-item',
-                        columnWidth: 300,
-
-                    })
-                  })
-                }
-              }
-            })
-    .factory('loadImages', ["$http", function($http) {
-        var promise = null;
-
-        return {
-            get: function(params) {
-                if (promise) { // If we've already asked for this data once,
-                    // return the promise that already exists.
-                    return promise;
-                } else {
-                    promise = $http.get('data/' + params.params.collectionId + '.json');
-                    return promise;
-                }
-            }
-        };
-    }]);
+            console.log(scope.$last);
+            lightGallery(document.getElementById('lightgallery'));
+          }
+        }
+      };
+    });

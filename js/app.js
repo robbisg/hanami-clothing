@@ -1,45 +1,111 @@
 var hanami = angular.module('app', ['ui.router',
-    //"pageslide-directive",
-    //'slick',
-    //"dynamicLayout",
-    //'ui.bootstrap.collapse',
+    'gilbox.sparkScroll',
+    'ui.materialize',
     'wu.masonry',
     'shop',
+    'contacts',
     'collection',
-])
+]).directive('footerHanami',
+              function () {
+                  return {
+                    restrict: "E",
+                    templateUrl: 'templates/footer-content.html',
+                  };
+  }).directive('navbarHanami',
+                function () {
+                  return {
+                    restrict: "E",
+                    scope: {
+                      opacityValue: "@"
+                    },
+                    templateUrl: 'templates/navbar.html',
+                  }
+  }).controller("NavController", ["$scope", function ($scope){
+
+    }
+
+  ]);
+
 
 hanami.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    var home = {
-        name: 'home',
-        url: '/',
-        data: { pageTitle: 'Hanami Clothing' },
-        templateUrl: 'templates/home.html'
-    };
-
     var content = {
         name: 'content',
-        url: '/content',
-        templateUrl: "templates/content-materialize.html"
+        url: '/web',
+        templateUrl: 'templates/content-materialize.html'
     };
+
+
 
     var collezioni = {
         name: 'content.collezioni',
-        url: "^/collezioni/:collectionId",
-        templateUrl: "templates/collection-materialize.html",
+        url: '/collezioni/:collectionId',
+        templateUrl: 'templates/collection-materialize.html',
+        resolve: {
+          pics: function($stateParams, $http){
+            console.log($stateParams);
+            return $http.get('data/' + $stateParams.collectionId + '.json')
+                .success(function(response) {
+                  console.log(response);
+                  return response;
+                })
+          }
+        },
         controller: "CollectionCtrl"
     };
 
-    var shop = {
-        name: 'content.shop',
-        url: "^/shop",
-        templateUrl: "templates/shop.html"
+    var shopItem = {
+        name: 'content.item',
+        url: "/shop/:itemId",
+        templateUrl: "templates/shop-item.html",
+        resolve: {
+          items: function($stateParams, $http){
+            console.log($stateParams);
+            return $http.get('data/shop-new.json')
+                .success(function(response) {
+                  console.log(response);
+                  return response;
+                })
+          }
+        },
+        controller: "ItemController"
     };
+
+    var shop = {
+      name: 'content.shop',
+      url: "/shop",
+      templateUrl: "templates/shop.html",
+      resolve: {
+        shop: function($stateParams, $http){
+          console.log($stateParams);
+          return $http.get('data/shop-new.json')
+              .success(function(response) {
+                console.log(response);
+                return response;
+              })
+        }
+      },
+      controller: "ShopController"
+
+    }
 
     var home = {
         name: 'home',
-        url: "^/home",
+        url: "/",
         templateUrl: "templates/home.html"
+    }
+
+    var about = {
+        name: 'content.about',
+        url: "/about",
+        templateUrl: "templates/about.html"
+    }
+
+    var contacts = {
+        name: 'content.contacts',
+        url: "/contacts",
+        templateUrl: "templates/contacts.html",
+        controller: "ContactsController"
     }
 
     $stateProvider
@@ -47,31 +113,9 @@ hanami.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         .state("content", content)
         .state('content.collezioni', collezioni)
         .state('content.shop', shop)
+        .state('content.item', shopItem)
+        .state("content.about", about)
+        .state("content.contacts", contacts)
 
-});
-
-
-hanami.controller('pageslideCtrl', ['$scope', function($scope) {
-    $scope.checked = true;
-    $scope.size = '10px';
-    $scope.toggle = function() {
-        $scope.checked = !$scope.checked
-    }
-    $scope.mockRouteChange = function() {
-        $scope.$broadcast('$locationChangeStart');
-    }
-    $scope.onopen = function() {
-        alert('Open');
-        console.log(this, $scope);
-    }
-    $scope.onclose = function() {
-        alert('Close');
-        console.log($scope);
-    }
-}]);
-
-hanami.controller('CollapseDemoCtrl', function($scope) {
-    $scope.isNavCollapsed = true;
-    $scope.isCollapsed = true;
-    $scope.isCollapsedHorizontal = false;
+      $urlRouterProvider.otherwise('/');
 });

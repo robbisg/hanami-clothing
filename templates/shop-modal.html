@@ -1,0 +1,14 @@
+<div id="modal-{{item}}" class="modal" ng-controller="ShopModalController">
+    <div class="modal-content">
+        <h4><i class="fa fa-exclamation" aria-hidden="true"></i> Richiesta disponibilità</h4>
+
+        <p>Tutti gli articoli Hanami sono pezzi unici che vendiamo anche nel nostro punto vendita.<br>
+        E' possibile, perciò, che il capo che hai scelto non sia più disponibile, sfortunatamente! <br>Per verificarne la disponibilità,
+        clicca il pulsante Richiedi disponibilità, verrà inviata una mail con il capo che hai richiesto e noi verificheremo
+      che non è stato venduto!</p>
+    </div>
+    <div class="modal-footer">
+      <a ng-click="checkAvailability(item)" class="modal-action modal-close waves-effect waves-green btn-flat">Richiedi disponibilità</a>
+      <a href class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+</div>
