@@ -1,4 +1,5 @@
 var hanami = angular.module('app', ['ui.router',
+    //'ngMeta',
     'gilbox.sparkScroll',
     'ui.materialize',
     'wu.masonry',
@@ -51,7 +52,7 @@ hanami.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
                 })
           }
         },
-        controller: "CollectionCtrl"
+        controller: "CollectionCtrl",
     };
 
     var shopItem = {
@@ -61,7 +62,7 @@ hanami.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         resolve: {
           items: function($stateParams, $http){
             console.log($stateParams);
-            return $http.get('data/shop-new.json')
+            return $http.get('data/shop.json')
                 .success(function(response) {
                   console.log(response);
                   return response;
@@ -78,7 +79,7 @@ hanami.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
         shop: function($stateParams, $http){
           console.log($stateParams);
-          return $http.get('data/shop-new.json')
+          return $http.get('data/shop.json')
               .success(function(response) {
                 console.log(response);
                 return response;
@@ -118,4 +119,6 @@ hanami.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
         .state("content.contacts", contacts)
 
       $urlRouterProvider.otherwise('/');
+      //$locationProvider.html5Mode(true);
+      //$locationProvider.hashPrefix('!');
 });

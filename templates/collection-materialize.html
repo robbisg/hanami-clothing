@@ -1,11 +1,11 @@
 <!-- Page Content -->
 
 
-    <div class="parallax-container">
+    <div class="parallax-container hide-on-small-only">
       <div parallax><img ng-src={{pics.background_image}}></div>
       <h1 class="parallax-title center-align hide-on-med-and-down">{{pics.title}}</h1>
     </div>
-    <div id="section08" class="demo">
+    <div id="section08" class="demo hide-on-small-only">
       <a href="#collection-gallery"><span></span>Scroll</a>
     </div>
     <div class="container-fluid">
@@ -14,14 +14,14 @@
           <h1 class="center-align show-on-large-only hide-on-med-and-down" id="page-title" style="font-family:'Poiret One';"></h1>
           <h1 class="center-align show-on-med-and-down hide-on-large-only parallax-title"
                   id="page-title"
-                  style="font-family:'Poiret One'; font-size:40px; width:100%; left:0;">{{pics.title}}</h1>
+                  style="font-family:'Poiret One'; margin-top: 15%; font-size:40px; width:100%; left:0;">{{pics.title}}</h1>
           <div masonry="{transitionDuration: '0.9s'}">
             <div>
             <!-- items -->
               <div class="masonry-brick" ng-repeat="img in pics.data" >
                 <div class="card z-depth-0" style="margin: 0px;">
                   <div class="card-content" style="padding: 10px;">
-                      <img materialboxed data-caption={{img.alt}} alt={{img.alt}} ng-src="{{img.src}}" >
+                      <img materialboxed alt={{img.alt}} ng-src="{{img.src}}" >
                   </div>
                 </div>
               </div>

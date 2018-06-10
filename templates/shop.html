@@ -1,63 +1,68 @@
-<div class="container">
+
+<div class="parallax-container" style="width:100%;">
+  <div parallax style="left:0px;">
+    <img ng-src="../images/collection/fw2018/web/37.jpg" style="-webkit-filter: opacity(70%) grayscale(70%); filter: opacity(70%) grayscale(70%);"></div>
+  <h1 class="parallax-title center-align shop-coming">Coming soon</h1>
+</div>
+
+
+<div class="container hide">
   <div class="row">
     <div class="col s12" style="margin-top:5%">
-      <h1 class="center-align" id="page-title" style="font-family:'Poiret One'; padding-bottom: 1%;">Shop</h1>
+      <h1 class="center-align hide" id="page-title" style="font-family:'Poiret One'; padding-bottom: 1%;">Shop</h1>
         <!-- items -->
-        <div class="col xl4 l6 m12" ng-repeat="img in shop.data" style="margin-top: .75em; margin-bottom: .75em;"
-          itemscope itemtype="http://schema.org/Product"
 
-          >
+
+
+        <div class="col xl4 l6 m12" ng-repeat="img in shop.data" style="margin-top: .8em; margin-bottom: .8em;"
+          itemscope itemtype="http://schema.org/Product">
           <a ui-sref="content.item({itemId:'{{img.id}}'})"
             itemprop="url">
 
             <div id="shop-{{img.id}}" class="vertical-align center-align shop-main-item" ng-style="hexToRgb(img.id, img.color)">
 
-                <div class="row shop-main-text" style="margin: auto;">
-                    <div class="col s12 shop-main-name" itemprop="name"> · {{img.name}} ·</div>
+                <div class="hidden" style="">
+
                     <div class="hidden-markup" itemprop="brand" itemscope itemtype="http://schema.org/Brand">
                       <span class="hidden-markup" itemprop="name">Hanami</span>
                     </div>
                 </div>
 
-                <div class="row"><div class="col s12"><img height="350" ng-src={{img.src}} itemprop="image"></div></div>
-
-                <div class="row" style="margin:0px;">
-                  <div class="col s6 center-align shop-main-price-div" style="padding: 10px;"
-                       itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                    <div ng-if="img.price != 0" >
-                        <div class="hidden-markup" itemprop="availability" href="http://schema.org/InStock">Disponibile</div>
-                        <span class="shop-main-price">{{img.price}} <span>€</span></span>
-                        <span class="shop-main-discount" itemprop="price" content={{img.discount}}>{{img.discount}}
-                          <span itemprop="priceCurrency" content="EUR">€</span>
-                        </span>
-                    </div>
-                    <div ng-if="img.price == 0" itemprop="availability" href="http://schema.org/OutOfStock">
-                        <span class="shop-main-discount" itemprop="price" content="0">Non disponibile</span>
-                        <span itemprop="priceCurrency" content="EUR"></span>
-                    </div>
+                <div class="row">
+                  <div class="col s12">
+                    <div class="shop-image-div">
+                      <div class="shop-info valign-wrapper">
+                        <div class="shop-info-text">Details</div>
+                      </div>
+                      <div class="shop-image">
+                          <img height="350" ng-src={{img.src}} itemprop="image">
+                      </div>
+                  </div>
 
                   </div>
-                  <div class="col s6">
-                      <a class="waves-effect waves-light btn-large btn-shop z-depth-4 {{img.price == 0 ? 'disabled' : null}}" data-target='modal-{{img.id}}' modal>Acquista</a>
-                  </div>
-                  <!-- Modal shop -->
-                  <div id="modal-{{img.id}}" class="modal" ng-controller="ShopModalController">
-                      <div class="modal-content">
-                        <h4 style="color:red;"><i class="fa fa-exclamation" aria-hidden="true"></i> Richiesta disponibilità <i class="fa fa-exclamation" aria-hidden="true"></i></h4>
+                </div>
 
-                          <p>Tutti gli articoli Hanami sono pezzi unici che vendiamo anche nel nostro punto vendita.<br>
-                          E' possibile, perciò, che il capo che hai scelto non sia più disponibile, sfortunatamente! <br>Per verificarne la disponibilità,
-                          clicca il pulsante Richiedi disponibilità, verrà inviata una mail con il capo che hai richiesto e noi verificheremo
-                        che non è stato venduto!</p>
-                      </div>
-                      <div class="modal-footer">
-                        <a ng-click="checkAvailability(img.id)" class="modal-action modal-close waves-effect waves-green btn-flat">Richiedi disponibilità</a>
-                        <a href class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
-                      </div>
+
+              </div>
+              <div class="row shop-main-row">
+                <div class="col s7 shop-main-name" itemprop="name">{{img.name}}</div>
+
+                <div class="col s5 center-align shop-main-price-div" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                  <div ng-if="img.price != 0" >
+                      <div class="hidden-markup" itemprop="availability" href="http://schema.org/InStock">Disponibile</div>
+                      <span class="shop-main-price show-on-large-only">{{img.price}} <span>€</span></span>
+                      <span class="shop-main-discount" itemprop="price" content={{img.discount}}>{{img.discount}}
+                        <span itemprop="priceCurrency" content="EUR">€</span>
+                      </span>
+                  </div>
+                  <div ng-if="img.price == 0" itemprop="availability" href="http://schema.org/OutOfStock">
+                      <span class="shop-main-discount" itemprop="price" content="0">Non disponibile</span>
+                      <span itemprop="priceCurrency" content="EUR"></span>
                   </div>
 
                 </div>
               </div>
+
             </a>
         </div>
       </div>

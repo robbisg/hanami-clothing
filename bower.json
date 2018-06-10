@@ -1,0 +1,45 @@
+{
+  "name": "hanami",
+  "authors": [
+    "robbisg <robbenson18@gmail.com>"
+  ],
+  "description": "Dependencies",
+  "main": "index.html",
+  "keywords": [
+    "hanami",
+    "abbigliamento",
+    "pezzi unici",
+    "clothing",
+    "grottammare"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.hanamiclothing.it",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-deckgrid": "^0.5.0",
+    "angular-ui-grid": "angular-grid#^4.0.2",
+    "angulargrid": "^0.6.5",
+    "angular-dynamic-layout": "^0.1.11",
+    "angular-ui-router": "ui-router#^0.4.2",
+    "animejs": "^2.0.0",
+    "bootstrap-social": "^5.1.1",
+    "scrollreveal": "^3.3.4",
+    "slick-carousel": "^1.6.0",
+    "angular-pageslide-directive": "^2.1.4",
+    "angular-slick": "^0.2.1",
+    "angular-vidbg": "angular-video-background#^0.0.12",
+    "angular-masonry": "^0.17.0",
+    "lightgallery.js": "^1.0.1",
+    "fox-angular-scrollReveal.js": "^1.0.2",
+    "shifty": "^2.1.1",
+    "rekapi": "^1.7.4",
+    "ngMeta": "^1.0.2"
+  }
+}

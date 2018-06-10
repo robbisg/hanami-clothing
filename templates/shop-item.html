@@ -1,53 +1,75 @@
-<div class="container-fluid" style="">
+<div class="container-fluid">
   <div class="row">
-    <div class="col s12" style="margin-top:5%" itemscope itemtype="http://schema.org/Product">
-      <h1 class="center-align" style="font-family:'Poiret One'; padding-bottom: 5%;"></h1>
-        <!-- items -->
-        <div class="col s4">
-            <div class=" center-align " ng-repeat="subimage in item.images">
-              <div class="shop-subimage">
 
-                <a href ng-click="selectItem(subimage, $event)"><img class="responsive-img" ng-src={{subimage}} width="10%"></a>
+    <div class=" shop-main-col col s12" style="padding-top: 10%;"
+    itemscope itemtype="http://schema.org/Product">
 
-              </div>
-
-              </div>
+        <div class="col l6 s12 center-align shop-item-main vertical-align">
+          <div class="hide-on-med-and-down"><img class="responsive-img" height=650 ng-src={{item.src}} itemprop="image"></div>
+          <div carousel dist="0" shift="280" class="hide-on-large-only">
+              <a ng-repeat="subimage in item.images" class="carousel-item" href="javascript:void(0);">
+                <img ng-src="{{subimage}}">
+              </a>
+          </div>
         </div>
-        <div class="col s4 center-align shop-item-main vertical-align">
-          <div><img class="responsive-img" height=650 ng-src={{item.src}} itemprop="image"></div>
-        </div>
-        <div class="col s4">
+
+
+
+        <div class="col l4 s12" >
           <div class="shop-main-text" >
-            <div class="shop-item-box center-align" style="background-color:#eceff1;">
+            <div class="shop-item-box">
               <div class="row">
-                <div class="col s12 shop-item-name" itemprop="name">{{item.name}}</div>
+                <div class="col s12 shop-item-name" itemprop="name" style="padding:0px;">{{item.name}}</div>
                 <div class="hidden-markup" itemprop="brand" itemscope itemtype="http://schema.org/Brand">
                   <span class="hidden-markup" itemprop="name">Hanami</span>
                 </div>
               </div>
-              <div class="row" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                <div ng-if="item.price != 0" >
-                  <div class="hidden-markup" itemprop="availability" href="http://schema.org/InStock">Disponibile</div>
-                  <div class="col s6 shop-item-price">{{item.price}} <span>€</span></span></div>
-                  <div class="col s6 shop-item-discount" itemprop="price" content={{item.discount}}>{{item.discount}}
-                    <span itemprop="priceCurrency" content="EUR">€</span>
-                    </span></div>
-                </div>
-                <div ng-if="item.price == 0" itemprop="availability" href="http://schema.org/OutOfStock">
-                    <div class="col s12 shop-item-discount">Non disponibile</div>
-                </div>
+
+            <div class="row shop-item-description" itemprop="description">{{item.description}}
+              <div class="shop-item-size">Taglia: {{item.size}}</div></div>
+
+
+            <div class="row shop-item-price-row" style="" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <div ng-if="item.price != 0" >
+                <div class="hidden-markup" itemprop="availability" href="http://schema.org/InStock">Disponibile</div>
+
+                <div class="col s2 shop-item-price show-on-large">{{item.price}} <span>€</span></div>
+                <div class="col s6 m6 l6 shop-item-discount" itemprop="price" content={{item.discount}}>{{item.discount}}
+                  <span itemprop="priceCurrency" content="EUR">€</span>
+                  </div>
+              </div>
+              <div ng-if="item.price == 0" itemprop="availability" href="http://schema.org/OutOfStock">
+                  <div class="col s6 m6 shop-item-discount">Non disponibile</div>
               </div>
 
-            <div class="row shop-item-description" itemprop="description">{{item.description}}</div>
-            <div class="row">
-              <a class="shop-item-button btn z-depth-4 {{item.price == 0 ? 'disabled' : null}}" data-target='modal-{{item.id}}' modal>Acquista</a>
+
+              <div class="col s2">
+                <a class="shop-item-button btn {{item.price == 0 ? 'disabled' : null}}"
+                data-target='modal-{{item.id}}' modal>Acquista</a>
+              </div>
             </div>
           </div>
-
         </div>
+        <div class="row center-align hide-on-med-and-down shop-subimage-box">
+          <div class=" col s4" ng-repeat="subimage in item.images">
+            <div class="shop-subimage" style="" ng-class="subimage === item.src ? 'shop-active': none" id={{subimage.slice(-9,-4)}}>
+
+              <a href ng-click="selectItem(subimage, $event)"><img class="" ng-src={{subimage}} width="10%"></a>
+
+            </div>
+
+          </div>
       </div>
+
+
+      </div>
+
+
     </div>
   </div>
+
+
+
   <!-- Modal shop -->
   <div id="modal-{{item.id}}" class="modal" ng-controller="ShopModalController">
       <div class="modal-content">
@@ -66,7 +88,7 @@
   <footer class="hanami-page-footer page-footer">
     <div class="hanami-footer-copyright">
       <div>
-      © 2017, Hanami di Giulia Roselli | Via G. Leopardi, 16 - Grottammare (AP) | P.IVA: 02274090444 | <a class="right-align" href="https://github.com/robbisg" style="color:gray;">Credits</a>
+      © 2017, Hanami di Giulia Roselli | Via G. Leopardi, 16 - Grottammare (AP) | P.IVA: 02274090444 | XF | <a class="right-align" href="https://github.com/robbisg" style="color:gray;">Credits</a>
       </div>
     </div>
   </footer>
